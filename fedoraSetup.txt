@@ -1,10 +1,10 @@
 # Speed up dnf
 sudo nano /etc/dnf/dnf.conf
 
-fastestmirror=True
-max_parallel_downloads=10
+max_parallel_downloads=20
+#fastestmirror=True
 defaultyes=True
-#keepcache=True
+keepcache=True
 
 
 # Update system
@@ -35,15 +35,16 @@ sudo dnf update -y && sudo dnf install akmod-nvidia -y && sudo dnf install xorg-
 # Reboot and switch to x11
 
 # Debloat
-sudo dnf remove gnome-contacts gnome-calendar gnome-weather gnome-maps gnome-boxes rhythmbox gnome-tour -y
+sudo dnf remove gnome-contacts gnome-weather gnome-maps gnome-tour firefox gnome-calendar rhythmbox -y
 
 Contacts
-Calendar
 Weather
 Maps
-Boxes
-Rhythmbox
 Tour
+Firefox
+Calendar
+Rhythmbox
+
 
 # Install Extensions, Tweaks
 Blur my shell
@@ -52,12 +53,16 @@ AppIndicator/Tray
 Coverflow Alt-Tab
 Sound and Input Chooser
 Tiling Assistant
+Just Perfection
+Dash to Dock COSMIC
+Extension List
+Caffeine
 
 # Arrange folders in start menu
 
 # Settings
 
-# Personalize
+# Personalize -> preferable just Icons, and stick with libadwaita to prevent UI problems
 GTK Theme
 Icons
 Cursors

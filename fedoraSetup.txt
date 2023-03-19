@@ -73,3 +73,7 @@ Cursors
 
 # Brave
 sudo dnf install dnf-plugins-core && sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/ && sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc && sudo dnf install brave-browser -y
+
+
+# All (except dnf tweaks, NVIDIA, and Brave)
+sudo dnf clean all && sudo dnf update -y && sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y && sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y && sudo dnf group update core -y && sudo dnf groupupdate core -y && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel -y && sudo dnf install lame\* --exclude=lame-devel -y && sudo dnf group upgrade --with-optional Multimedia -y && sudo dnf remove gnome-boxes gnome-calendar cheese cheese-libs gnome-contacts mediawriter gnome-maps gnome-photos rhythmbox gnome-system-monitor gnome-tour gnome-weather -y

@@ -12,12 +12,12 @@ sudo dnf clean all && sudo dnf update -y
 
 https://docs.fedoraproject.org/en-US/quick-docs/
 
-==========
 
 # Setup rpm repositories
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y && sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
 sudo dnf group update core -y
+sudo dnf groupupdate core -y
 
 
 # Setup flathub for flatpaks
@@ -28,14 +28,14 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
 sudo dnf install lame\* --exclude=lame-devel
 sudo dnf group upgrade --with-optional Multimedia
-sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y && sudo dnf groupupdate sound-and-video -y
 
 
 # Install NVIDIA graphics driver
 sudo dnf update -y && sudo dnf install akmod-nvidia -y && sudo dnf install xorg-x11-drv-nvidia-cuda -y
 
 
-# Reboot and switch to x11
+# Reboot
+
 
 # Debloat
 sudo dnf remove gnome-boxes gnome-calendar cheese cheese-libs gnome-contacts mediawriter gnome-maps gnome-photos rhythmbox gnome-system-monitor gnome-tour gnome-weather -y
@@ -48,37 +48,28 @@ Media Writer
 Maps
 Photos
 Rhythmbox
-System  Monitor
+System Monitor
 Tour
 Weather
 
 
-# Install Extensions, Tweaks
-Blur my shell
-Removable Drive Menu
-AppIndicator/Tray
-Coverflow Alt-Tab
-Sound and Input Chooser
-Tiling Assistant
-Just Perfection
-Dash to Dock COSMIC
-Extension List
-Caffeine
+# GNOME Tweaks
+
 
 # Arrange folders in start menu
 
+
 # Settings
 
+
 # Personalize -> preferable just Icons, and stick with libadwaita to prevent UI problems
-
-## Papirus Icons
-wget -qO- https://git.io/papirus-icon-theme-install | sh
-
 GTK Theme
 Icons
 Cursors
 
+
 # Install apps and Enjoy
+
 
 # Brave
 sudo dnf install dnf-plugins-core && sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/ && sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc && sudo dnf install brave-browser -y

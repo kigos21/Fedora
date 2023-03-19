@@ -38,11 +38,12 @@ sudo dnf update -y && sudo dnf install akmod-nvidia -y && sudo dnf install xorg-
 
 
 # Debloat
-sudo dnf remove gnome-boxes gnome-calendar cheese cheese-libs gnome-contacts mediawriter gnome-maps gnome-photos rhythmbox gnome-system-monitor gnome-tour gnome-weather -y
+sudo dnf remove gnome-boxes gnome-calendar cheese cheese-libs gnome-connections gnome-contacts mediawriter gnome-maps gnome-photos rhythmbox gnome-system-monitor gnome-tour gnome-weather -y
 
 Boxes
 Calendar
 Cheese
+Connections
 Contacts
 Media Writer
 Maps

@@ -1,0 +1,9 @@
+# For power management, use `auto-cpufreq`
+# However, Fedora Workstation comes with power-profile-daemon
+# compatability alongside each packages is not tested
+
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+cd auto-cpufreq && sudo ./auto-cpufreq-installer
+
+For more info:
+https://github.com/AdnanHodzic/auto-cpufreq#auto-cpufreq-modes-and-options

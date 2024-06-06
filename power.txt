@@ -2,6 +2,8 @@
 # However, Fedora Workstation comes with power-profile-daemon
 # compatability alongside each packages is not tested
 
+sudo dnf remove power-profiles-daemon
+
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
 

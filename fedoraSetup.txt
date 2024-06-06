@@ -1,80 +1,25 @@
 # Speed up dnf
-sudo nano /etc/dnf/dnf.conf
-
-max_parallel_downloads=20
-fastestmirror=True
-defaultyes=True
-keepcache=True
-
 
 # Update system
-sudo dnf clean all && sudo dnf update -y
-
-https://docs.fedoraproject.org/en-US/quick-docs/
-
 
 # Setup rpm repositories
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y && sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
-
-sudo dnf group update core -y
-sudo dnf groupupdate core -y
-
 
 # Setup flathub for flatpaks
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+# Install non-free codecs
 
-# Install codecs
-sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
-sudo dnf install lame\* --exclude=lame-devel
-sudo dnf group upgrade --with-optional Multimedia
-
-
-# Install NVIDIA graphics driver
-sudo dnf update -y && sudo dnf install akmod-nvidia -y && sudo dnf install xorg-x11-drv-nvidia-cuda -y
-
-
-# Reboot
-
+# Install NVIDIA packages
 
 # Debloat
-sudo dnf remove gnome-boxes gnome-calendar cheese cheese-libs gnome-connections gnome-contacts mediawriter gnome-maps gnome-photos rhythmbox gnome-system-monitor gnome-tour gnome-weather -y
-
-Boxes
-Calendar
-Cheese
-Connections
-Contacts
-Media Writer
-Maps
-Photos
-Rhythmbox
-System Monitor
-Tour
-Weather
-
-
-# GNOME Tweaks
-
 
 # Arrange folders in start menu
 
-
 # Settings
 
+# Individual App settings
 
 # Personalize -> preferable just Icons, and stick with libadwaita to prevent UI problems
-GTK Theme
-Icons
-Cursors
-
+GTK Theme = adw-gtk3-theme
+Icons = papirus
 
 # Install apps and Enjoy
-
-
-# Brave
-sudo dnf install dnf-plugins-core && sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/ && sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc && sudo dnf install brave-browser -y
-
-
-# All (except dnf tweaks, NVIDIA, and Brave)
-sudo dnf clean all && sudo dnf update -y && sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y && sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y && sudo dnf group update core -y && sudo dnf groupupdate core -y && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel -y && sudo dnf install lame\* --exclude=lame-devel -y && sudo dnf group upgrade --with-optional Multimedia -y && sudo dnf remove gnome-boxes gnome-calendar cheese cheese-libs gnome-connections gnome-contacts mediawriter gnome-maps gnome-photos rhythmbox gnome-system-monitor gnome-tour gnome-weather -y
